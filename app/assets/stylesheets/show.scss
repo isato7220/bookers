@@ -1,0 +1,32 @@
+
+
+.show_title {
+  display: flex;
+  align-items: center;
+  font-size: 12;
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+.show_title p{
+  margin-left: 7px;
+}
+
+.show_body {
+  display: flex;
+  align-items: center;
+  font-size: 12;
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+.show_body p{
+  margin-left: 7px;
+}
+
+.edit-btn{
+  border-right: 2px solid black;
+  padding-right: 6px;
+}
+
+.back-btn{
+  padding-left: 2px;
+}
