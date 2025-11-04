@@ -1,3 +1,5 @@
+
+
 <h1 class=index_title>Books</h1>
 <body>
 <div class=list>
@@ -11,9 +13,10 @@
   <tr>
     <td><%= book.title %></td>
     <td><%= book.body %></td>
-    <td><%= link_to "show",book_path(book) %>
-    <td><%= link_to "edit",edit_book_path(book) %>
-    <td><%= link_to "destroy",book_path(book),method: :delete,"deta-confirm" => "本当に削除しますか" %>
+    <td><%= link_to "show",book_path(book) %></td>
+    <td><%= link_to "edit",edit_book_path(book) %></td>
+    <td><%= link_to "destroy", book_path(book), method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+
   </tr>
   <% end %>
 </table>
@@ -24,6 +27,14 @@
 <%= form_with model: Book.new do |f| %>
 <div class="create_body">
   <h1>New book</h1>
+      <% if @book.errors.any? %>
+  <%= @book.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
     <div class="form_title">
       <h5>Title</h5>
       <%= f.text_field :title %>
@@ -36,7 +47,9 @@
   <div class="submit">
     <%= f.submit 'Create Book',class: "submit-btn" %>
   </div>
+  </div>
+  
+<% end %>
 
 </div>
-<% end %>
 </body>
